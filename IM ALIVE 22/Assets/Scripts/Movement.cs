@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour {
         vertical = Input.GetAxisRaw("Vertical");
 
         // was a direction pressed this frame along with space?
-         if (Input.GetKeyDown(KeyCode.Space) && (horizontal != 0 || vertical != 0)) {
+         if (Input.GetKeyDown(KeyCode.LeftShift) && (horizontal != 0 || vertical != 0)) {
             isDashing = true;
         }
 
@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour {
         animator.SetFloat("Speed", horizontal);
         dashDistance = 0;
         if (isDashing) {
-            dashDistance = 20;
+            dashDistance = 30f;
         }
 
         if (Input.GetButtonDown("Fire1")) {
