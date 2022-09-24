@@ -407,7 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bb7d230c6c8884c9b4184a08dc5850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 5
+  SPEED_MAX: 10
   dashDistance: 15
 --- !u!50 &1047185467
 Rigidbody2D:
