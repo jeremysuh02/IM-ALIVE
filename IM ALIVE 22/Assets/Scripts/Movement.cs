@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour {
     public float dashDistance = 500f;
     bool isDashing = false;
     private const float DELTA_V = 0.005f;
+
+    public Animator animator;
      
     // Start is called before the first frame update
     void Start(){
@@ -35,8 +37,8 @@ public class Movement : MonoBehaviour {
         // for the dash, a WIP
         speedX = setSpeed(horizontal, speedX);
         speedY = setSpeed(vertical, speedY);
-        //prevSpeedX = speedX;
-        //prevSpeedY = speedY;
+      
+        animator.SetFloat("Speed", horizontal);
         dashDistance = 0;
         if (isDashing) {
             dashDistance = 20;
