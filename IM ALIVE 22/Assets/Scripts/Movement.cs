@@ -37,8 +37,8 @@ public class Movement : MonoBehaviour {
         // for the dash, a WIP
         speedX = setSpeed(horizontal, speedX);
         speedY = setSpeed(vertical, speedY);
-      
-        animator.SetFloat("Speed", horizontal);
+       
+       animator.SetFloat("Speed", horizontal);
         dashDistance = 0;
         if (isDashing) {
             dashDistance = 30f;
@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour {
         if (Input.GetButtonDown("Fire1")) {
 
         }
+
     }
 
     private void FixedUpdate() {
