@@ -39,19 +39,7 @@ public class Movement : MonoBehaviour {
 
       
        
-        // for the dash, still a WIP
-        if (isTapped(horizontal)) {
-            tapTimeX = Time.time;
-        } 
-
-        if (isTapped(vertical)) {
-            tapTimeY = Time.time;
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-
-        }
+       
     }
 
     private void FixedUpdate() {
@@ -59,6 +47,7 @@ public class Movement : MonoBehaviour {
     }
 
     // Still a WIP
+    /*
     private void dash() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             isDashing = true;
@@ -71,7 +60,7 @@ public class Movement : MonoBehaviour {
             }
             body.velocity = new Vector2(horizontal * dashDistance, vertical * dashDistance);
         }
-    }
+    }*/
 
     // Manages increases and decreases in speedX or SpeedY (depending on the axis)
     private float setSpeed(float axis, float speedAxis) {
