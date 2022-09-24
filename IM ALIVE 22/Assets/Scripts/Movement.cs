@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Vector2 movementVector = new Vector2(horizontal * (speedX + dashDistance) * Time.deltaTime, vertical * (speedY + dashDistance) * Time.deltaTime);
+        Vector2 movementVector = new Vector2(horizontal * (speedX + dashDistance), vertical * (speedY + dashDistance));
         body.velocity = movementVector;
         //speedX = prevSpeedX;
         //speedY = prevSpeedY;
