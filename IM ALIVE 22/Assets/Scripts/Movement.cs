@@ -34,18 +34,11 @@ public class Movement : MonoBehaviour {
         speedX = setSpeed(horizontal, speedX);
         speedY = setSpeed(vertical, speedY);
 
+        //movement animations
         animator.SetFloat("Speed", horizontal);
 
-
-        while(speed < -2f)
-        {
-            animator.SetBool("MaxSpeed", true);
-        }
-
-        while(speed > -10f)
-        {
-            animator.SetBool("MaxSpeed", false);
-        }
+      
+       
         // for the dash, still a WIP
         if (isTapped(horizontal)) {
             tapTimeX = Time.time;
