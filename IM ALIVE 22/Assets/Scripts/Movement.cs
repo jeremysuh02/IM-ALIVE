@@ -11,11 +11,10 @@ public class Movement : MonoBehaviour {
     public float SPEED_MAX = 10f;
     private float speedX = 1f;
     private float speedY = 1f;
-    public float dashDistance = 15f;
-    bool isDashing;
-    float timeBetweenTaps = 0;
-    float tapTimeX = 0;
-    float tapTimeY = 0;
+    private float prevSpeedX;
+    private float prevSpeedY;
+    public float dashDistance = 500f;
+    bool isDashing = false;
     private const float DELTA_V = 0.005f;
      
     // Start is called before the first frame update
@@ -24,34 +23,40 @@ public class Movement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        speedX = setSpeed(horizontal, speedX);
-        speedY = setSpeed(vertical, speedY);
-
-        // for the dash, still a WIP
-        if (isTapped(horizontal)) {
-            tapTimeX = Time.time;
-        } 
-
-        if (isTapped(vertical)) {
-            tapTimeY = Time.time;
+        // was a direction pressed this frame along with space?
+         if (Input.GetKeyDown(KeyCode.Space) && (horizontal != 0 || vertical != 0)) {
+            isDashing = true;
         }
 
-        if (Input.GetButtonDown("Fire1"))
-        {
+        // for the dash, a WIP
+        speedX = setSpeed(horizontal, speedX);
+        speedY = setSpeed(vertical, speedY);
+        //prevSpeedX = speedX;
+        //prevSpeedY = speedY;
+        dashDistance = 0;
+        if (isDashing) {
+            dashDistance = 20;
+        }
+
+        if (Input.GetButtonDown("Fire1")) {
 
         }
     }
 
     private void FixedUpdate() {
-        body.velocity = new Vector2(horizontal * speedX, vertical * speedY);
+        Vector2 movementVector = new Vector2(horizontal * (speedX + dashDistance) * Time.deltaTime, vertical * (speedY + dashDistance) * Time.deltaTime);
+        body.velocity = movementVector;
+        //speedX = prevSpeedX;
+        //speedY = prevSpeedY;
+        isDashing = false;
     }
 
     // Still a WIP
+    /*
     private void dash() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             isDashing = true;
@@ -64,7 +69,7 @@ public class Movement : MonoBehaviour {
             }
             body.velocity = new Vector2(horizontal * dashDistance, vertical * dashDistance);
         }
-    }
+    }*/
 
     // Manages increases and decreases in speedX or SpeedY (depending on the axis)
     private float setSpeed(float axis, float speedAxis) {
@@ -82,10 +87,6 @@ public class Movement : MonoBehaviour {
             speedAxis = SPEED_MAX;
         }
         return speedAxis;
-    }
-
-    private bool isTapped(float axis) {
-        return axis != 0;
     }
 }
 
