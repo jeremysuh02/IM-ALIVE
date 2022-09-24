@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour {
     float tapTimeX = 0;
     float tapTimeY = 0;
     private const float DELTA_V = 0.005f;
+
+    public Animator animator;
      
     // Start is called before the first frame update
     void Start(){
@@ -31,6 +33,8 @@ public class Movement : MonoBehaviour {
 
         speedX = setSpeed(horizontal, speedX);
         speedY = setSpeed(vertical, speedY);
+
+        animator.SetFloat("Speed", horizontal);
 
         // for the dash, still a WIP
         if (isTapped(horizontal)) {
