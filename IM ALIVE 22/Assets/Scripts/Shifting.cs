@@ -56,7 +56,7 @@ public class Shifting : MonoBehaviour {
             shifted = false;
         }
 
-        animator.SetBool("Shift", shiftPressed);
+        animator.SetBool("Shifted", shiftPressed);
         shiftPressed = false;
         checkBounds();
     }
