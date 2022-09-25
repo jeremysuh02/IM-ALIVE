@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3539119387147804256}
   - component: {fileID: 3539119387147804259}
   - component: {fileID: 3539119387147804258}
+  - component: {fileID: -396944895897646710}
   m_Layer: 0
   m_Name: GreenCircleEnemy
   m_TagString: Untagged
@@ -106,3 +107,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-396944895897646710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539119387147804261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fb863ddf61110449b6fd50960c0de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 2
