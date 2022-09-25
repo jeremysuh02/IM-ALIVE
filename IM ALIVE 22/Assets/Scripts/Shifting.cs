@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Shifting : MonoBehaviour {
     // player shifting
-    bool shifted;
+    [SerializeField] public bool shifted;
     bool shiftPressed;
 
     // player position
     private float playerX;
     private float playerY;
+
+    public Animator animator;
 
 
     // boundary variables
@@ -24,7 +26,6 @@ public class Shifting : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         // all shift settings set to false by default
-        shifted = false;
         shiftPressed = false;
         // instantiate the boundaries
         posBoundLeft = GameObject.FindWithTag("Pos_L").transform.position.x;
@@ -54,10 +55,14 @@ public class Shifting : MonoBehaviour {
             playerX = transform.position.x;
             shifted = false;
         }
+
+        animator.SetBool("ShiftPressed", shiftPressed);
+        animator.SetBool("Shifted", shifted);
         shiftPressed = false;
         checkBounds();
     }
 
+    // to make sure the player doesn't go out of bounds
     private void checkBounds() {
         switch(shifted) {
             // case for when you're on the left side of the screen

@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bb7d230c6c8884c9b4184a08dc5850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  SPEED_MAX: 10
+  speed: 4
   dashDistance: 15
   animator: {fileID: 6900811621969913698}
 --- !u!114 &7235993449156958555
@@ -184,3 +183,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af62077f87db6ca4c9c7bc634aa42d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shifted: 1
