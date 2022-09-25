@@ -18,11 +18,14 @@ public class Movement : MonoBehaviour {
     float tapTimeY = 0;
     private const float DELTA_V = 0.005f;
 
+    Shooterr shooter;
+
     public Animator animator;
      
     // Start is called before the first frame update
     void Start(){
         body = GetComponent<Rigidbody2D>();
+        shooter = GetComponent<Shooterr>();
     }
 
     // Update is called once per frame
@@ -45,9 +48,9 @@ public class Movement : MonoBehaviour {
             tapTimeY = Time.time;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown.Spacebar)
         {
-
+                shooter.Update();
         }
     }
 
