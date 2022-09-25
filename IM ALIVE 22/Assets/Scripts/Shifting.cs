@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shifting : MonoBehaviour {
     // player shifting
-    bool shifted;
+    [SerializeField] public bool shifted;
     bool shiftPressed;
 
     // player position
@@ -24,7 +24,6 @@ public class Shifting : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         // all shift settings set to false by default
-        shifted = false;
         shiftPressed = false;
         // instantiate the boundaries
         posBoundLeft = GameObject.FindWithTag("Pos_L").transform.position.x;
