@@ -89,7 +89,7 @@ public class Movement : MonoBehaviour {
         } else if (speedAxis > SPEED_MAX) {
             speedAxis = SPEED_MAX;
         }
-        return speedAxis;
-    }
+        return speedAxis; 
+    } 
 }
 
