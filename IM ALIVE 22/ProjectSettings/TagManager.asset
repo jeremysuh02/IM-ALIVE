@@ -4,6 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Pos_L
+  - Boundary
+  - Pos_R
+  - Neg_L
+  - Neg_R
   - GreenBottom
   - Player_black
   layers:
