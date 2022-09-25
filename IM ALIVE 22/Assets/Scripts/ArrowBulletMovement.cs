@@ -15,10 +15,4 @@ public class ArrowBulletMovement : MonoBehaviour {
     void Update() {
         bulletPrefab.velocity = new Vector2(0, -1) * force;
     }
-
-    void destroyBullet() {
-        if (this.gameObject.transform.position.y > GameObject.FindWithTag("Floor").transform.position.y) {
-            Destroy(this.gameObject);
-        }
-    }
 }

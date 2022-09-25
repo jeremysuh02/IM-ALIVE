@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowBullet: {fileID: 2060171764}
-  currentTime: -2
+  currentTime: 0
   nextFire: 4
   projectileSpawn: {fileID: 0}
 --- !u!1 &949195473

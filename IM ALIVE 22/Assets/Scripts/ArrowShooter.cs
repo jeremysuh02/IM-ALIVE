@@ -12,22 +12,33 @@ public class ArrowShooter : MonoBehaviour {
         projectileSpawn = this.gameObject.transform;
     }
 
-    public void Fire() {
+    public GameObject Fire() {
+        GameObject bulletInstance = null;
         currentTime += Time.deltaTime;
         if (currentTime > nextFire) {
             nextFire += currentTime;
-            Instantiate(arrowBullet, projectileSpawn.position, Quaternion.identity);
+            bulletInstance = Instantiate(arrowBullet, projectileSpawn.position, Quaternion.identity);
             nextFire -= currentTime;
             currentTime = 0.0f;
         }
+        return bulletInstance;
     }
     public void Update() {
-        Fire();
+        GameObject bInstance = Fire();
+        if (bInstance != null) {
+            destroyObject(bInstance);
+        }
     }
 
     void OnCollisionEnter(Collision other){
         if (other.gameObject.tag == "Floor") {
             Destroy(arrowBullet);
+        }
+    }
+
+    void destroyObject(GameObject obj) {
+        if (obj.transform.position.y < GameObject.FindWithTag("Floor").transform.position.y) {
+            Destroy(obj);
         }
     }
 }
