@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4911766347218723153}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a7bf2378087704d841f5b1bb998536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 3776939431972028382}
+  myself: {fileID: 5243873631590879228}
   force: 15

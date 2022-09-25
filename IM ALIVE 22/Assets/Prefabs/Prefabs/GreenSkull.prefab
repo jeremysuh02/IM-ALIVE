@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6465364711546002181}
   - component: {fileID: 6465364711546002180}
   - component: {fileID: 5620826112223820040}
-  - component: {fileID: -5351972513483564941}
+  - component: {fileID: -2969489727195704641}
   m_Layer: 0
   m_Name: GreenSkull
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,8 +122,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: -1}
   speed: 0.25
---- !u!61 &-5351972513483564941
-BoxCollider2D:
+  character: {fileID: 6465364711546002182}
+  health: 18
+--- !u!60 &-2969489727195704641
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,6 +147,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.22, y: 0.32}
+      - {x: -0.29999998, y: 0.26}
+      - {x: -0.32, y: 0.19999999}
+      - {x: -0.32, y: -0.19}
+      - {x: -0.19, y: -0.32}
+      - {x: 0.29, y: -0.32}
+      - {x: 0.32, y: -0.21}
+      - {x: 0.32, y: 0.26}
+      - {x: 0.22999999, y: 0.32}

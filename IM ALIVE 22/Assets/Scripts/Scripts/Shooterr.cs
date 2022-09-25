@@ -32,11 +32,11 @@ public class Shooterr : MonoBehaviour
         Fire();
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Ceiling")
+        if (collision.gameObject.name == "Bullet(Clone)")
         {
-            Destroy(bulletPrefab);
+            Destroy(gameObject);
         }
     }
 }
