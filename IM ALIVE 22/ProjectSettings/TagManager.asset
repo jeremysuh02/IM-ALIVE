@@ -9,6 +9,8 @@ TagManager:
   - Pos_R
   - Neg_L
   - Neg_R
+  - GreenBottom
+  - Player_black
   layers:
   - Default
   - TransparentFX
