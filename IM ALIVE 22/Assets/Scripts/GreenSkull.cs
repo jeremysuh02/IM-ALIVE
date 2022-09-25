@@ -4,11 +4,36 @@ using UnityEngine;
 
 public class GreenSkull : MonoBehaviour
 {
-    public Vector2 direction = Vector2.down;
-    [SerializeField] public float speed ;
-
-    private void Update()
+    [SerializeField] float Speed = 3f;
+    Rigidbody2D rb;
+    Transform target;
+    Vector2 moveDirection;
+    // Start is called before the first frame update
+    private void Awake()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        rb = GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
+        target = GameObject.Find("GreenBottom").transform;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (target)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rb.rotation = angle;
+            moveDirection = direction; 
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (target)
+        {
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * Speed;
+        }
     }
 }
