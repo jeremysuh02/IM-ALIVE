@@ -61,6 +61,7 @@ public class Shifting : MonoBehaviour {
         checkBounds();
     }
 
+    // to make sure the player doesn't go out of bounds
     private void checkBounds() {
         switch(shifted) {
             // case for when you're on the left side of the screen
