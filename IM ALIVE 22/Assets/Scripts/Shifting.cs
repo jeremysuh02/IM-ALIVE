@@ -11,6 +11,8 @@ public class Shifting : MonoBehaviour {
     private float playerX;
     private float playerY;
 
+    public Animator animator;
+
 
     // boundary variables
     // left boundary on the left side of the screen
@@ -53,6 +55,8 @@ public class Shifting : MonoBehaviour {
             playerX = transform.position.x;
             shifted = false;
         }
+
+        animator.SetBool("Shift", shiftPressed);
         shiftPressed = false;
         checkBounds();
     }
