@@ -36,7 +36,6 @@ public class Shifting : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.RightShift)) {
-            shifted = !shifted;
             shiftPressed = true;
         }
 
@@ -44,39 +43,42 @@ public class Shifting : MonoBehaviour {
         playerX = transform.position.x;
         playerY = transform.position.y;
 
-        // check if the player is out of bounds
+        // update the X coordinate when "shifting" to get to the other side of the screen
+        if (shiftPressed && !shifted) {
+            transform.position = new Vector2(playerX + Mathf.Abs(negBoundRight - negBoundLeft), playerY);
+            playerX = transform.position.x;
+            shifted = true;
+        } else if (shiftPressed && shifted) {
+            //transform.position = new Vector2(negBoundLeft + (playerX - boundLeftNearest_X), playerY);
+            transform.position = new Vector2(playerX - Mathf.Abs(negBoundRight - negBoundLeft), playerY);
+            playerX = transform.position.x;
+            shifted = false;
+        }
+        shiftPressed = false;
+        checkBounds();
+    }
+
+    private void checkBounds() {
         switch(shifted) {
             // case for when you're on the left side of the screen
             case false:
                 if (playerX < posBoundLeft) {
-                    transform.position = new Vector2(posBoundLeft + 2, playerY);
+                    transform.position = new Vector2(posBoundLeft + 0.5f, playerY);
                 }
-                if (playerX> posBoundRight) {
-                    transform.position = new Vector2(posBoundRight - 2, playerY);
+                if (playerX > posBoundRight) {
+                    transform.position = new Vector2(posBoundRight - 0.5f, playerY);
                 }
                 break;
             // case for when you're on the right side of the screen
             case true:
                 if (playerX < negBoundLeft) {
-                    transform.position = new Vector2(negBoundLeft + 2, playerY);
+                    transform.position = new Vector2(negBoundLeft + 0.5f, playerY);
                 }
                 if (playerX > negBoundRight) {
-                    transform.position = new Vector2(negBoundRight - 2, playerY);
+                    transform.position = new Vector2(negBoundRight - 0.5f, playerY);
                 }
                 break;
         }
-    }
-
-    void FixedUpdate() {
-        // update the X coordinate when "shifting" to get to the other side of the screen
-        float boundLeftNearest_X = getCurrentScreenBound(negBoundLeft, posBoundLeft, playerX);
-
-        if (shifted && shiftPressed) {
-            transform.position = new Vector2(negBoundLeft + (playerX - boundLeftNearest_X), playerY);
-        } else if (!shifted && shiftPressed) {
-            transform.position = new Vector2(posBoundLeft + (playerX - boundLeftNearest_X), playerY);
-        }
-        shiftPressed = false;
     }
 
     // Check which "SCREEN" the player is on
