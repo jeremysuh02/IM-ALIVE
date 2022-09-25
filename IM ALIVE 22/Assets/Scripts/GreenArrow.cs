@@ -24,33 +24,20 @@ public class GreenArrow : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        float shootAngle = arrowToPlayerAngle();
-        shootAtAngle(shootAngle);
+        
     }
 
     void FixedUpdate() {
         rb.velocity = moveDirection;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
+    void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Bullet") {
             health--;
             Destroy(collision.gameObject);
         }
         if (health < 1) {
-            Destroy(character);
+            Destroy(this);
         }
-    }
-
-    float arrowToPlayerAngle() {
-        float angle = Mathf.Atan2(player.transform.position.y - transform.position.y, player.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
-        return angle;
-    }
-
-    void shootAtAngle(float angle) {
-        //rb.rotation = angle;
-        //moveDirection = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-        //rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
     }
 }

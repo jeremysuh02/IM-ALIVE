@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArrowShooter : MonoBehaviour {
-    public GameObject arrowBulletPrefab;
+    public GameObject arrowBullet;
     public float currentTime = 0.0f;
     [SerializeField]public float nextFire = 5f;
     public Transform projectileSpawn;
@@ -16,7 +16,7 @@ public class ArrowShooter : MonoBehaviour {
         currentTime += Time.deltaTime;
         if (currentTime > nextFire) {
             nextFire += currentTime;
-            Instantiate(arrowBulletPrefab, projectileSpawn.position, Quaternion.identity);
+            Instantiate(arrowBullet, projectileSpawn.position, Quaternion.identity);
             nextFire -= currentTime;
             currentTime = 0.0f;
         }
@@ -28,7 +28,7 @@ public class ArrowShooter : MonoBehaviour {
     void OnCollisionEnter(Collision other){
         if (other.gameObject.tag == "Ceiling")
         {
-            Destroy(arrowBulletPrefab);
+            Destroy(arrowBullet);
         }
     }
 }
