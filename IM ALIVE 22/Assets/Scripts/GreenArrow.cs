@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GreenArrow : MonoBehaviour {
 
-    [SerializeField] float speed = 2f;
+    [SerializeField] float speed = 1.5f;
     Rigidbody2D rb;
     Vector2 moveDirection;
     int health = 2;
     private float enemyX;
-    GameObject player;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -18,7 +17,6 @@ public class GreenArrow : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         enemyX = transform.position.x;
-        player = GameObject.FindWithTag("Player");
         moveDirection = new Vector2(0, -1 * speed);
     }
 

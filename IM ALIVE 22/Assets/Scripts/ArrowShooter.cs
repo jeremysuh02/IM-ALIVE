@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ArrowShooter : MonoBehaviour {
     public GameObject arrowBullet;
-    public float currentTime = 0.0f;
-    [SerializeField]public float nextFire = 5f;
+    public float currentTime = -5f;
+    [SerializeField]public float nextFire = 0.1f;
     public Transform projectileSpawn;
 
     public void Start() {
@@ -26,8 +26,7 @@ public class ArrowShooter : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision other){
-        if (other.gameObject.tag == "Ceiling")
-        {
+        if (other.gameObject.tag == "Floor") {
             Destroy(arrowBullet);
         }
     }
