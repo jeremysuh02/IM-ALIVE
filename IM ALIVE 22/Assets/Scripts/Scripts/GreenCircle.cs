@@ -8,6 +8,8 @@ public class GreenCircle : MonoBehaviour
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
+    public int health = 3;
+    public GameObject character;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -15,7 +17,7 @@ public class GreenCircle : MonoBehaviour
     }
     void Start()
     {
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("Player 1").transform;
     }
 
     // Update is called once per frame
@@ -34,6 +36,18 @@ public class GreenCircle : MonoBehaviour
         if (target)
         {
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * Speed;
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            health--;
+            Destroy(collision.gameObject);
+        }
+        if (health < 1)
+        {
+            Destroy(character);
         }
     }
 }

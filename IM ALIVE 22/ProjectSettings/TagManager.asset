@@ -11,6 +11,9 @@ TagManager:
   - Neg_R
   - GreenBottom
   - Player_black
+  - Ceiling
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
