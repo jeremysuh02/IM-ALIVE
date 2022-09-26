@@ -30,21 +30,15 @@ public class Spawner : MonoBehaviour
         }
         if (Waves.Count == 0)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                GameObject newEmpty = Instantiate(empty);
-                newEmpty.transform.parent = transform;
-                Waves.Add(newEmpty);
-            }
+           
         }
         
-        if (transform.childCount == 2)
-        {
-            spawn();
-        }
+       
     }
     void spawn()
     {
-        Instantiate(enemyWaves[Random.Range(0, enemyWaves.Length)]);
+        GameObject w = enemyWaves[Random.Range(0, enemyWaves.Length)];
+        Instantiate(w);
+        
     }
 }
