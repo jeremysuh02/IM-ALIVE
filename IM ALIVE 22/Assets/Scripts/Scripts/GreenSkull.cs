@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class GreenSkull : MonoBehaviour
 {
     public Vector2 direction = Vector2.down;
@@ -11,7 +12,7 @@ public class GreenSkull : MonoBehaviour
     private void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
-       
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

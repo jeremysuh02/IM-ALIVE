@@ -28,7 +28,7 @@ public class GreenCircle : MonoBehaviour
             Vector3 direction = (target.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             rb.rotation = angle;
-            moveDirection = direction; 
+            moveDirection = direction;
         }
     }
     private void FixedUpdate()
@@ -51,3 +51,4 @@ public class GreenCircle : MonoBehaviour
         }
     }
 }
+

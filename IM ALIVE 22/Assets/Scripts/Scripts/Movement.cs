@@ -8,14 +8,14 @@ public class Movement : MonoBehaviour {
     float vertical;
 
     [SerializeField] public float speed;
-    public float SPEED_MAX = 10f;
-    private float speedX = 1f;
-    private float speedY = 1f;
-    private float prevSpeedX;
-    private float prevSpeedY;
+    //public float SPEED_MAX = 10f;
+    //private float speedX = 1f;
+    //private float speedY = 1f;
+    //private float prevSpeedX;
+    //private float prevSpeedY;
     public float dashDistance = 500f;
     bool isDashing = false;
-    private const float DELTA_V = 0.005f;
+    //private const float DELTA_V = 0.005f;
 
     public Animator animator;
      
